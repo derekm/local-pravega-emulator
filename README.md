@@ -21,7 +21,7 @@ java.lang.NoClassDefFoundError: com/google/protobuf/GeneratedMessageV3
         at io.pravega.client.control.impl.ControllerImpl.createScope(ControllerImpl.java:288)
         at io.pravega.client.admin.impl.StreamManagerImpl.createScope(StreamManagerImpl.java:125)
         at io.pravega.local.InProcPravegaClusterTest.testWriteAndReadEventWithValidClientConfig(InProcPravegaClusterTest.java:135)
-...
+        ...
 ```
 
 0.9.0-rc2 uses `protobuf-java` version 3.13.0. Including this dependency to resolve the above error prevents `LocalPravegaEmulator` from starting properly, and the test ultimately fails trying to create its scope:
@@ -36,7 +36,7 @@ io.pravega.client.control.impl.ControllerFailureException: Failed to create scop
 	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
 	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2073)
 	at io.pravega.client.control.impl.ControllerImpl$RPCAsyncCallback.onCompleted(ControllerImpl.java:1720)
-...
+        ...
 ```
 
 Please advise.
